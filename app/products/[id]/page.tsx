@@ -27,7 +27,7 @@ export default function ProductPage() {
     const fetchedProduct = async () => {
       const id = params?.id;
 
-      console.log("id ",id);
+      console.log("inside fetch product method id ",id);
 
       if (!id) {
         setError("Product ID is missing");
@@ -165,6 +165,16 @@ export default function ProductPage() {
               urlEndpoint={process.env.NEXT_PUBLIC_URL_ENDPOINT}
               src={product.imageUrl}
               alt={product.name}
+              width={
+                 selectedVariant
+                  ? Number(getTransformation(selectedVariant.type)[0].width)
+                  : Number(getTransformation("SQUARE")[0].width)
+                  }
+                 height={
+                 selectedVariant
+                  ? Number(getTransformation(selectedVariant.type)[0].height)
+                  : Number(getTransformation("SQUARE")[0].height)
+                  }
               transformation={
                 selectedVariant
                   ? getTransformation(selectedVariant.type)

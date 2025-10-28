@@ -3,12 +3,12 @@ import Product from "@/models/Product";
 import { NextResponse } from "next/server";
 
 
-export async function GET(props: { params: Promise<{ id: string }> }) {
+export async function GET(_req:Request, props: { params: Promise<{ id: string }> }) {
     console.log("Inside the get specific product route")
     try {
-        const { id } = await props.params;
+        const id  = (await props.params).id;
 
-        console.log("db connected before ", typeof id);
+        console.log("db connected before ", id, typeof id);
 
         await connectionToDb();
 
