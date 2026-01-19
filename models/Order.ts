@@ -56,7 +56,7 @@ const orderSchema = new Schema<IOrder>({
         enum: ["pending", "completed", "failed"],
         default: "pending",
     },
-    downloadUrl: { type: String, required: true },
+    downloadUrl: { type: String},
     previewUrl: { type: String }
 },
     {

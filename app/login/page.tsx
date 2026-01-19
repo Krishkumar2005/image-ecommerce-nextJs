@@ -21,7 +21,7 @@ export default function Login() {
     });
 
     if (result?.error) {
-      showNotification(result.error, "error");
+      showNotification("Server Error", "error");
     } else {
       showNotification("Login successful!", "success");
       router.push("/");
